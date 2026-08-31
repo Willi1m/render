@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}发布文章 - 我的 Flask 博客{% endblock %}
+
+{% block content %}
+    <h1>发布新文章</h1>
+    <form method="POST">
+        <label>标题</label>
+        <input type="text" name="title" placeholder="文章标题" required>
+        
+        <label>链接标识（slug）</label>
+        <input type="text" name="slug" placeholder="hello-world" required>
+        
+        <label>内容</label>
+        <textarea name="content" placeholder="在这里写文章...&#10;&#10;用两个换行分段。" required></textarea>
+        
+        <button type="submit">发布文章</button>
+        <a href="{{ url_for('index') }}" style="margin-left:15px;color:#999;text-decoration:none;">取消</a>
+    </form>
+{% endblock %}
