@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}编辑文章 - 我的 Flask 博客{% endblock %}
+
+{% block content %}
+    <h1>编辑文章</h1>
+    <form method="POST">
+        <label>标题</label>
+        <input type="text" name="title" value="{{ post.title }}" required>
+        
+        <label>链接标识（slug）</label>
+        <input type="text" name="slug" value="{{ post.slug }}" required>
+        
+        <label>内容</label>
+        <textarea name="content" required>{{ post.content }}</textarea>
+        
+        <button type="submit">保存修改</button>
+        <a href="{{ url_for('post_detail', slug=post.slug) }}" class="btn-secondary" style="display:inline-block;padding:12px 24px;border-radius:4px;text-decoration:none;">取消</a>
+    </form>
+{% endblock %}
